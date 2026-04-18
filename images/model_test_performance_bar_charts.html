@@ -1,0 +1,83 @@
+
+<div style="padding: 1rem 0;">
+  <h2 class="sr-only">Bar charts comparing model performance metrics across architectures and model types for dataset 2</h2>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; font-size: 12px; color: var(--color-text-secondary);">
+    <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #378ADD;"></span>Model A (Clean)</span>
+    <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #D85A30;"></span>Model B (Adv)</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 24px;">
+
+    <div>
+      <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 8px;">Accuracy</p>
+      <div style="position: relative; height: 260px;">
+        <canvas id="c2-accuracy" role="img" aria-label="Grouped bar chart of accuracy for dataset 2">ResNet-50 A:93.88 B:84.12, EfficientNet-B0 A:88.44 B:78.62, DenseNet201 A:94.00 B:90.81</canvas>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 8px;">Precision</p>
+      <div style="position: relative; height: 260px;">
+        <canvas id="c2-precision" role="img" aria-label="Grouped bar chart of precision for dataset 2">ResNet-50 A:94.33 B:86.16, EfficientNet-B0 A:89.62 B:81.17, DenseNet201 A:94.38 B:92.39</canvas>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 8px;">Recall</p>
+      <div style="position: relative; height: 260px;">
+        <canvas id="c2-recall" role="img" aria-label="Grouped bar chart of recall for dataset 2">ResNet-50 A:93.88 B:84.12, EfficientNet-B0 A:88.44 B:78.63, DenseNet201 A:94.00 B:90.81</canvas>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0 0 8px;">F1-Score</p>
+      <div style="position: relative; height: 260px;">
+        <canvas id="c2-f1" role="img" aria-label="Grouped bar chart of F1-Score for dataset 2">ResNet-50 A:93.76 B:83.90, EfficientNet-B0 A:88.10 B:77.42, DenseNet201 A:93.89 B:90.89</canvas>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['ResNet-50', 'EfficientNet-B0', 'DenseNet201'];
+const colorA = '#378ADD';
+const colorB = '#D85A30';
+
+const mkDatasets = (a, b) => ([
+  { label: 'Model A (Clean)', data: a, backgroundColor: colorA, borderRadius: 4 },
+  { label: 'Model B (Adv)',   data: b, backgroundColor: colorB, borderRadius: 4 }
+]);
+
+const opts = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: { legend: { display: false } },
+  scales: {
+    y: {
+      min: 74, max: 96,
+      ticks: { callback: v => v + '%', font: { size: 11 }, color: '#888780' },
+      grid: { color: 'rgba(136,135,128,0.15)' },
+      border: { display: false }
+    },
+    x: {
+      ticks: { font: { size: 11 }, color: '#888780', autoSkip: false },
+      grid: { display: false },
+      border: { display: false }
+    }
+  }
+};
+
+const make = (id, a, b) => new Chart(document.getElementById(id), {
+  type: 'bar',
+  data: { labels, datasets: mkDatasets(a, b) },
+  options: JSON.parse(JSON.stringify(opts))
+});
+
+make('c2-accuracy',  [93.88, 88.44, 94.00], [84.12, 78.62, 90.81]);
+make('c2-precision', [94.33, 89.62, 94.38], [86.16, 81.17, 92.39]);
+make('c2-recall',    [93.88, 88.44, 94.00], [84.12, 78.63, 90.81]);
+make('c2-f1',        [93.76, 88.10, 93.89], [83.90, 77.42, 90.89]);
+</script>
