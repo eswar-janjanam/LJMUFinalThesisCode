@@ -1,0 +1,171 @@
+{
+  "completed": [
+    "ResNet50",
+    "EfficientNet-B0",
+    "DenseNet201"
+  ],
+  "results": {
+    "ResNet50": {
+      "Model A (Clean)": {
+        "train_metrics": {
+          "accuracy": 99.29,
+          "precision": 99.29,
+          "recall": 99.29,
+          "f1": 99.29
+        },
+        "test_metrics": {
+          "accuracy": 93.88,
+          "precision": 94.33,
+          "recall": 93.88,
+          "f1": 93.76
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 43.25,
+            "0.03": 24.94,
+            "0.05": 24.62
+          },
+          "pgd": {
+            "0.01": 12.5,
+            "0.03": 8.5,
+            "0.05": 7.44
+          }
+        }
+      },
+      "Model B (Adv)": {
+        "train_metrics": {
+          "accuracy": 89.77,
+          "precision": 90.56,
+          "recall": 89.77,
+          "f1": 89.43
+        },
+        "test_metrics": {
+          "accuracy": 84.12,
+          "precision": 86.16,
+          "recall": 84.12,
+          "f1": 83.9
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 74.0,
+            "0.03": 46.38,
+            "0.05": 33.25
+          },
+          "pgd": {
+            "0.01": 15.0,
+            "0.03": 13.56,
+            "0.05": 1.38
+          }
+        }
+      }
+    },
+    "EfficientNet-B0": {
+      "Model A (Clean)": {
+        "train_metrics": {
+          "accuracy": 94.21,
+          "precision": 94.49,
+          "recall": 94.21,
+          "f1": 94.26
+        },
+        "test_metrics": {
+          "accuracy": 88.44,
+          "precision": 89.62,
+          "recall": 88.44,
+          "f1": 88.1
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 38.69,
+            "0.03": 25.44,
+            "0.05": 26.25
+          },
+          "pgd": {
+            "0.01": 14.25,
+            "0.03": 9.94,
+            "0.05": 9.81
+          }
+        }
+      },
+      "Model B (Adv)": {
+        "train_metrics": {
+          "accuracy": 87.25,
+          "precision": 87.98,
+          "recall": 87.25,
+          "f1": 87.13
+        },
+        "test_metrics": {
+          "accuracy": 78.62,
+          "precision": 81.17,
+          "recall": 78.63,
+          "f1": 77.42
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 35.62,
+            "0.03": 37.56,
+            "0.05": 36.75
+          },
+          "pgd": {
+            "0.01": 19.0,
+            "0.03": 21.38,
+            "0.05": 8.62
+          }
+        }
+      }
+    },
+    "DenseNet201": {
+      "Model A (Clean)": {
+        "train_metrics": {
+          "accuracy": 99.23,
+          "precision": 99.23,
+          "recall": 99.23,
+          "f1": 99.23
+        },
+        "test_metrics": {
+          "accuracy": 94.0,
+          "precision": 94.38,
+          "recall": 94.0,
+          "f1": 93.89
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 49.19,
+            "0.03": 26.81,
+            "0.05": 24.75
+          },
+          "pgd": {
+            "0.01": 13.5,
+            "0.03": 8.56,
+            "0.05": 5.31
+          }
+        }
+      },
+      "Model B (Adv)": {
+        "train_metrics": {
+          "accuracy": 95.89,
+          "precision": 96.32,
+          "recall": 95.89,
+          "f1": 95.96
+        },
+        "test_metrics": {
+          "accuracy": 90.81,
+          "precision": 92.39,
+          "recall": 90.81,
+          "f1": 90.89
+        },
+        "robustness": {
+          "fgsm": {
+            "0.01": 70.38,
+            "0.03": 67.25,
+            "0.05": 63.44
+          },
+          "pgd": {
+            "0.01": 47.44,
+            "0.03": 22.88,
+            "0.05": 2.88
+          }
+        }
+      }
+    }
+  }
+}
