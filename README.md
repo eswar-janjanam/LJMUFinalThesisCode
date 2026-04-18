@@ -20,14 +20,14 @@ Three pre-trained CNN architectures — **ResNet-50**, **EfficientNet-B0**, and 
 ```
 ├── 01_EDA_Brain_Tumor_MRI.ipynb                    # Exploratory Data Analysis notebook
 ├── 02_CNN_Training_Explainability_Robustness.ipynb  # Main training, evaluation & comparison notebook
-└── results/                                         # Saved model training history, results, and visualisations
-    ├── all_results.json              # Full results across all architectures and attack conditions
-    ├── gradcam_*.png                 # Grad-CAM visualisations per architecture
-    ├── shap_*.png                    # SHAP visualisations per architecture
-    ├── robustness_*.png              # Robustness bar charts per architecture
-    ├── confusion_*.png               # Confusion matrices per architecture
-    └── curves_*.png                  # Training curves per architecture
-
+├── results/                                         # Saved model training history, results, and visualisations
+│   ├── all_results.json              # Full results across all architectures and attack conditions
+│   ├── gradcam_*.png                 # Grad-CAM visualisations per architecture
+│   ├── shap_*.png                    # SHAP visualisations per architecture
+│   ├── robustness_*.png              # Robustness bar charts per architecture
+│   ├── confusion_*.png               # Confusion matrices per architecture
+│   └── curves_*.png                  # Training curves per architecture
+└── images/                           # Figures used in the thesis report
 ```
 
 ---
